@@ -29,9 +29,7 @@ export default function Shop() {
       if (genre) queryParams.append('genre', genre);
       if (sort) queryParams.append('sort', sort);
 
-      const url = axios.defaults.baseURL 
-        ? `/api/v1/books?${queryParams.toString()}` 
-        : `http://localhost:5000/api/v1/books?${queryParams.toString()}`;
+      const url = `/api/v1/books?${queryParams.toString()}`;
         
       const res = await axios.get(url);
       

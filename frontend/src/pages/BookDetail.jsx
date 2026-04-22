@@ -58,7 +58,7 @@ export default function BookDetail() {
   useEffect(() => {
     const fetchBook = async () => {
       try {
-        const url = axios.defaults.baseURL ? `/api/v1/books/${id}` : `http://localhost:5000/api/v1/books/${id}`;
+        const url = `/api/v1/books/${id}`;
         const res = await axios.get(url);
         setBook(res.data.data);
         fetchReviews();

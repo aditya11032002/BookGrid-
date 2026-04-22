@@ -12,7 +12,7 @@ export default function ForgotPassword() {
     setStatus('loading');
     setMessage('');
     try {
-      await axios.post('http://localhost:5000/api/v1/auth/forgotpassword', { email });
+      await axios.post('/api/v1/auth/forgotpassword', { email });
       setStatus('success');
       setMessage('Password reset email sent! Check your inbox (and spam folder).');
     } catch (err) {

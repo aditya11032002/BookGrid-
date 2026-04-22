@@ -15,7 +15,7 @@ export default function Home() {
   useEffect(() => {
     const fetchBooks = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/v1/books');
+        const res = await axios.get('/api/v1/books');
         if (res.data && res.data.data) {
            setBooks(res.data.data);
         }

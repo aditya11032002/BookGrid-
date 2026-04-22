@@ -28,7 +28,7 @@ export default function ResetPassword() {
     setMessage('');
     try {
       await axios.put(
-        `http://localhost:5000/api/v1/auth/resetpassword/${resettoken}`,
+        `/api/v1/auth/resetpassword/${resettoken}`,
         { password }
       );
       setStatus('success');
