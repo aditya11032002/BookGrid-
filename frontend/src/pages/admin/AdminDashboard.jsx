@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+import axios from '../../utils/api';
 import logger from '../../utils/logger';
 import { Users, Book, ShoppingBag, DollarSign, TrendingUp, TrendingDown, Activity, Package, Star, Eye, Clock, ArrowUp, ArrowDown, BarChart3, PieChart, Calendar } from 'lucide-react';
 

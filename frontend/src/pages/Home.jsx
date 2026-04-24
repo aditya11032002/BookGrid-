@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { ChevronRight, Sparkles, Heart, ShoppingCart, Star, ArrowRight, BookOpen, TrendingUp, Clock } from 'lucide-react';
-import axios from 'axios';
+import axios from '../utils/api';
 
 export default function Home() {
   const { addToCart } = useCart();

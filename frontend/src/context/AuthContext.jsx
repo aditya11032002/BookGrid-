@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect, useContext } from 'react';
-import axios from 'axios';
+import API from '../utils/api';
 import logger from '../utils/logger';
 
 const AuthContext = createContext();
@@ -11,16 +11,11 @@ export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem('token') || null);
   const [loading, setLoading] = useState(true);
 
-  // Configure axios default
-  axios.defaults.baseURL = 'https://bookgrid-khk6.onrender.com';
-
   useEffect(() => {
     if (token) {
-      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
       localStorage.setItem('token', token);
       fetchUser();
     } else {
-      delete axios.defaults.headers.common['Authorization'];
       localStorage.removeItem('token');
       setUser(null);
       setLoading(false);
@@ -29,7 +24,7 @@ export const AuthProvider = ({ children }) => {
 
   const fetchUser = async () => {
     try {
-      const res = await axios.get('/api/v1/auth/me');
+      const res = await API.get('/api/v1/auth/me');
       setUser(res.data.data);
       logger.logAuthAction('fetch_user_success', res.data.data);
     } catch (error) {
@@ -42,7 +37,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const res = await axios.post('/api/v1/auth/login', { email, password });
+      const res = await API.post('/api/v1/auth/login', { email, password });
       setToken(res.data.token);
       logger.logAuthAction('login_success', { email });
       return res.data;
@@ -54,7 +49,7 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (name, email, password) => {
     try {
-      const res = await axios.post('/api/v1/auth/register', { name, email, password });
+      const res = await API.post('/api/v1/auth/register', { name, email, password });
       setToken(res.data.token);
       logger.logAuthAction('register_success', { email, name });
       return res.data;

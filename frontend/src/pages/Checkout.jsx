@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import axios from 'axios';
+import axios from '../utils/api';
 import { useCart } from '../context/CartContext';
 import { CreditCard, Truck, CheckCircle2, ChevronRight, Lock } from 'lucide-react';
 

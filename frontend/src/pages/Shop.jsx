@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { ShoppingCart, Filter, Search, X, Heart, Star, Grid, List, Sparkles } from 'lucide-react';
 import { useCart } from '../context/CartContext';
-import axios from 'axios';
+import axios from '../utils/api';
 
 export default function Shop() {
   const [searchParams, setSearchParams] = useSearchParams();

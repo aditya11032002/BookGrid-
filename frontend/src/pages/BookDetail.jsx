@@ -4,7 +4,7 @@ import { ShoppingCart, Star, ArrowLeft, MessageSquare, Send, Heart, Sparkles, Bo
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
 import logger from '../utils/logger';
-import axios from 'axios';
+import axios from '../utils/api';
 
 export default function BookDetail() {
   const { id } = useParams();
